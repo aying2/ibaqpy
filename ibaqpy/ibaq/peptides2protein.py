@@ -112,6 +112,8 @@ def extract_fasta(fasta: str, enzyme: str, proteins: List, min_aa: int, max_aa: 
     uniquepepcounts = dict()
     digestor = ProteaseDigestion()
     digestor.setEnzyme(enzyme)
+    digestor.setMissedCleavages(2)
+    logger.info("Set Missed Cleavages to hard-coded value")
     mw_dict = dict()
     for entry in fasta_proteins:
         accession = get_accession(entry.identifier)
